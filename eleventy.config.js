@@ -20,6 +20,13 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPairedShortcode('setVar', setVar);
   eleventyConfig.addFilter('fullDate', fullDate);
   eleventyConfig.addFilter('markdownify', markdownify);
+  
+  // Set server options to allow access from any host
+  eleventyConfig.setServerOptions({
+    host: "0.0.0.0",
+    cors: true,
+    showAllHosts: true
+  });
 
   /* --------------------------------------------------------------------------
   MarkdownIt settings
