@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+# Publish mode for editorial workflow
+publish_mode: editorial_workflow
+
+# Media folder where uploaded files will be saved
+media_folder: "_source/assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+# Collections define the structure for content types
+collections:
+  - name: "docs"
+    label: "Documentation"
+    folder: "_source/docs/instructions"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "_source/index.html"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Layout", name: "layout", widget: "hidden", default: "base.html"}
+          - {label: "Body", name: "body", widget: "markdown"}
