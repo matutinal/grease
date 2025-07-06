@@ -24,6 +24,7 @@ export default async function (eleventyConfig) {
   // Set server options to allow access from any host
   eleventyConfig.setServerOptions({
     host: "0.0.0.0",
+    port: 12000,
     cors: true,
     showAllHosts: true
   });
